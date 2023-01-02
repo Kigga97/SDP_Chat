@@ -10,17 +10,17 @@ public class ChatServer {
         return handlers;
     }
     public static void main(String[] args) throws Exception {
-        // Create a server socket to listen for incoming connections
-        ServerSocket serverSocket = new ServerSocket(8000);
+
+        ServerSocket serverSocket = new ServerSocket(8000); //Listener
 
         while (true) {
-            // Accept an incoming connection
-            Socket clientSocket = serverSocket.accept();
 
-            // Create a buffered reader to read messages from the client
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            Socket clientSocket = serverSocket.accept(); // Accept conn
 
-            // Read the PIN and username from the client
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream())); // Buffered reader to read client messages
+
+
             String pin = in.readLine();
             String username = in.readLine();
 
